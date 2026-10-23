@@ -22,7 +22,7 @@ BSTNode *deleteBST(BSTNode *root, int key); /* returns new root */
 BSTNode *searchBST(const BSTNode *root, int key);
 
 // Questions
-int getHeight(const BSTNode *root);
+size_t getHeight(const BSTNode *root);
 size_t getSize(const BSTNode *root);
 int getMin(const BSTNode *root);
 int getMax(const BSTNode *root);

@@ -71,3 +71,12 @@ size_t BSTRange(BSTNode *root, int low, int high) {
     return BSTRange(root->left, low, high) + BSTRange(root->right, low, high);
   }
 }
+
+size_t getHeight(const BSTNode *root) {
+  if (root == NULL) {
+    return 0;
+  }
+  size_t left = getHeight(root->left);
+  size_t right = getHeight(root->right);
+  return 1 + (left > right ? left : right);
+}
