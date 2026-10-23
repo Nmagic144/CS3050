@@ -49,3 +49,25 @@ void freeBST(BSTNode *root) {
   free(root);
   return;
 }
+
+size_t BSTRange(BSTNode *root, int low, int high) {
+  if (low > high) {
+    return 0;
+  }
+  if (root == NULL) {
+    return 0;
+  }
+  if (root->min_key > high || root->max_key < low) { // FULLY OUT
+    return 0;
+  }
+  if (root->min_key >= low && root->max_key <= high) { // FULLY IN
+    return root->count;
+  }
+  // Here means we are partly within the range
+  if (root->key >= low && root->key <= high) {
+    return 1 + BSTRange(root->left, low, high) +
+           BSTRange(root->right, low, high);
+  } else {
+    return BSTRange(root->left, low, high) + BSTRange(root->right, low, high);
+  }
+}

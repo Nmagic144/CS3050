@@ -27,9 +27,7 @@ size_t getSize(const BSTNode *root);
 int getMin(const BSTNode *root);
 int getMax(const BSTNode *root);
 
-size_t BSTLE(const BSTNode *root, int key);
-size_t BSTGE(const BSTNode *root, int key);
-
+size_t BSTRange(BSTNode *root, int low, int high);
 // Utilities
 void FYShuffle(int *array, int length); /* Fisher-Yates, in place */
 BSTNode *buildBSTFromArray(const int *array, int length);
