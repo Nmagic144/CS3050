@@ -1,14 +1,13 @@
 #ifndef BST_H
 #define BST_H
 
-#include <stddef.h>
+#include <stdlib.h>
 
 typedef struct BST {
   int key;
   struct BST *left;
   struct BST *right;
-  int count;
-  int size;
+  size_t count;
   int min_key;
   int max_key;
 } BSTNode;
@@ -24,12 +23,12 @@ BSTNode *searchBST(const BSTNode *root, int key);
 
 // Questions
 int getHeight(const BSTNode *root);
-int getSize(const BSTNode *root);
+size_t getSize(const BSTNode *root);
 int getMin(const BSTNode *root);
 int getMax(const BSTNode *root);
 
-int BSTLE(const BSTNode *root, int key);
-int BSTGE(const BSTNode *root, int key);
+size_t BSTLE(const BSTNode *root, int key);
+size_t BSTGE(const BSTNode *root, int key);
 
 // Utilities
 void FYShuffle(int *array, int length); /* Fisher-Yates, in place */
