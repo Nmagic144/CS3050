@@ -1,6 +1,7 @@
 #ifndef BST_H
 #define BST_H
 
+#include <stdint.h>
 #include <stdlib.h>
 
 typedef struct BST {
@@ -29,7 +30,10 @@ int getMax(const BSTNode *root);
 
 size_t BSTRange(BSTNode *root, int low, int high);
 // Utilities
-void FYShuffle(int *array, int length); /* Fisher-Yates, in place */
 BSTNode *buildBSTFromArray(const int *array, int length);
+typedef uint64_t rng_t;
+uint64_t rng_next(rng_t *state);
+uint64_t random_below(rng_t *state, uint64_t m);
+void FYShuffle(int *a, size_t n, rng_t *state); /* Fisher-Yates, in place */
 
 #endif
